@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TentativasComponent implements OnInit {
 
-  erro:string ="/assets/erro.png"
-  coracao:string ="/assets/cheio.png"
+  vazio:string ="/assets/vazio.png"
+  cheio:string ="/assets/cheio.png"
   constructor() { }
 
   ngOnInit() {
