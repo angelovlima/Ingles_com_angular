@@ -7,7 +7,7 @@
       </div>
       <div class="col-sm-6">
         <div class="d-flex flex-row-reverse">
-          <app-tentativas></app-tentativas>
+          <app-tentativas [tentativas]="tentativas"></app-tentativas>
         </div>
       </div>
     </div>
@@ -21,7 +21,9 @@
           <textarea 
           class="form-control" 
           rows="3"
-          (input)="atualizaResposta($event)"></textarea><!--$ captura o estado do elemento no dom-->
+          (input)="atualizaResposta($event)"
+          [value]="resposta"></textarea>
+          <!--$ captura o estado do elemento no dom-->
         </div>
 
       </div>

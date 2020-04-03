@@ -11,15 +11,17 @@ import { Frases } from './frase-mock'
 })
 export class PainelComponent implements OnInit {
 
-  frases: Frase[] = Frases;
-  resposta:string;
+  frases: Frase[] = Frases
+  resposta: string = ""
 
-  rodada: number = 0;
-  rodadaFrase:Frase;
+  rodada: number = 0
+  rodadaFrase:Frase
   progresso: number = 0
 
+  tentativas: number = 3
+
   constructor() {
-    this.rodadaFrase = this.frases[this.rodada];
+    this.alterarFrase()
 
   }
 
@@ -37,15 +39,25 @@ export class PainelComponent implements OnInit {
     if (this.resposta == this.rodadaFrase.frasePT){
       alert("Tradução correta")
       //rodada
-      this.rodada++;
+      this.rodada++
       //altera a frase (objeto)
-      this.rodadaFrase = this.frases[this.rodada]
+      this.alterarFrase()
       //altera valor de progresso para barra
       this.progresso = this.progresso + (100/ this.frases.length)
+      
     }
     else{
-      alert("Tu é burro em")
+      alert("Resposta errada!")
+      this.tentativas--
+      if (this.tentativas == -1){
+        alert("Você perdeu")
+      }
     }
+  }
+
+  alterarFrase(){
+    this.rodadaFrase = this.frases[this.rodada]
+    this.resposta = ""
   }
 
 
