@@ -1,12 +1,14 @@
 import { Coracao } from '../shared/coracao.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tentativas',
   templateUrl: './tentativas.component.html',
   styleUrls: ['./tentativas.component.css']
 })
-export class TentativasComponent implements OnInit {
+export class TentativasComponent implements OnInit, OnChanges {
+
+  //caveira: string = "/assets/parabens.gif"
 
 
   @Input() tentativas: number;
@@ -19,7 +21,15 @@ export class TentativasComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges(){
+    if (this.tentativas != this.coracoes.length){
+      this.coracoes[this.tentativas].cheio = false
+    }
   }
+
+  ngOnInit() {
+
+  }
+
 
 }
